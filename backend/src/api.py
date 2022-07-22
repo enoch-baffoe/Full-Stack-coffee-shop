@@ -83,7 +83,7 @@ def post_drinks(payload):
         abort(422)
     return jsonify({
         'success':True,
-        'drinks':drink.long()
+        'drinks':[drink.long()]
     }),200
 
 
@@ -122,7 +122,7 @@ def patch_drinks(payload,id):
         abort(401)
     return jsonify({
             'success': True,
-            'drinks': [drink.long()]})
+            'drinks': [drink.long()]}),200
 
 '''
 @TODO implement endpoint
@@ -148,7 +148,7 @@ def delete_drinks(payload,id):
     return jsonify({
         'success': True,
         'delete': id
-    })
+    }),200
 
 # Error Handling
 '''
