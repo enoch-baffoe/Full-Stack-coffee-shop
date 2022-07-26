@@ -32,10 +32,12 @@ db_drop_and_create_all()
 @app.route('/drinks', methods=['GET'])
 def get_drinks():
     drinks = Drink.query.all()
-
+    if len(drinks) == 0:
+        abort(404)
+    short_drinks=[drink.short() for drink in drinks]
     return jsonify({
         'success': True,
-        'drinks': [drink.short() for drink in drinks]
+        'drinks': short_drinks
     }), 200
 
 '''
